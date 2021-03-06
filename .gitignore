@@ -1,2 +1,3 @@
 flask
 .vscode
+api/__pycache__
