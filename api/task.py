@@ -15,7 +15,7 @@ def bad_request(error):
 
 @task.errorhandler(500)
 def server_error(error):
-    return {'erro': 'Internal server error'}, 500
+    return {'error': 'Internal server error'}, 500
 
 @task.route("/todo/api/v1.0/tasks", methods=['POST'])
 def add_task():
