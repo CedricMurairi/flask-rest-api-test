@@ -1,6 +1,7 @@
 from flask import Flask
 import os
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 db = SQLAlchemy()
 
@@ -18,6 +19,7 @@ def create_app():
     app.register_blueprint(task, url_prefix='/')
 
     db.init_app(app)
+    CORS(app)
 
     create_db(app)
 
