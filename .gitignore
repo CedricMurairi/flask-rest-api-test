@@ -1,3 +1,4 @@
 flask
 .vscode
 api/__pycache__
+api/base.db
