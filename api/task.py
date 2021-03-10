@@ -1,5 +1,5 @@
 from flask import Flask, abort, request, url_for, Blueprint
-from .models import Task
+from .models import Task, token_required
 from . import db
 
 task = Blueprint('task', __name__)
@@ -73,6 +73,7 @@ def get_task(id):
     return {'task': make_public(task)}
 
 @task.route("/todo/api/v1.0/tasks", methods=['GET'])
+@token_required
 def get_tasks():
     tasks = Task.query.all()
     return {'tasks': [make_public(task) for task in tasks]}
